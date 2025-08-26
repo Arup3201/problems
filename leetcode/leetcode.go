@@ -1,6 +1,8 @@
 package leetcode
 
-import "github.com/Arup3201/stack"
+import (
+	"github.com/Arup3201/stack"
+)
 
 func FindCommonPrefix(strs []string) string {
 	prefix := strs[0]
@@ -56,4 +58,77 @@ func ValidParenthesis(s string) bool {
 	}
 
 	return true
+}
+
+func addBit(a, b, c rune) (rune, rune) {
+	rbit, carry := '0', '0'
+	switch {
+	case a == '0' && b == '1' && c == '0':
+		rbit = '1'
+		carry = '0'
+	case a == '1' && b == '0' && c == '0':
+		rbit = '1'
+		carry = '0'
+	case a == '0' && b == '0' && c == '1':
+		rbit = '1'
+		carry = '0'
+	case a == '0' && b == '1' && c == '1':
+		rbit = '0'
+		carry = '1'
+	case a == '1' && b == '0' && c == '1':
+		rbit = '0'
+		carry = '1'
+	case a == '1' && b == '1' && c == '0':
+		rbit = '0'
+		carry = '1'
+	case a == '1' && b == '1' && c == '1':
+		rbit = '1'
+		carry = '1'
+	}
+
+	return rbit, carry
+}
+
+func revert(runes []rune) []rune {
+	low, high := 0, len(runes)-1
+	for low < high {
+		runes[low], runes[high] = runes[high], runes[low]
+		low++
+		high--
+	}
+	return runes
+}
+
+func AddBinary(a, b string) string {
+	ra, rb := []rune(a), []rune(b)
+	carry := '0'
+	result := []rune{}
+
+	var cb rune
+	i, j := len(ra)-1, len(rb)-1
+	for i >= 0 && j >= 0 {
+		cb, carry = addBit(ra[i], rb[j], carry)
+		result = append(result, cb)
+		i--
+		j--
+	}
+
+	for i >= 0 {
+		cb, carry = addBit(ra[i], '0', carry)
+		result = append(result, cb)
+		i--
+	}
+
+	for j >= 0 {
+		cb, carry = addBit('0', rb[j], carry)
+		result = append(result, cb)
+		j--
+	}
+
+	if carry == '1' {
+		result = append(result, carry)
+	}
+
+	result = revert(result)
+	return string(result)
 }
