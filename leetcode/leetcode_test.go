@@ -87,3 +87,25 @@ func TestAddBinary(t *testing.T) {
 		}
 	}
 }
+
+func TestIsPalindrome(t *testing.T) {
+	tests := []struct {
+		input  string
+		output bool
+	}{
+		{
+			input:  "A man, a plan, a canal: Panama",
+			output: true,
+		},
+		{
+			input:  "race a car",
+			output: false,
+		},
+	}
+
+	for _, test := range tests {
+		if got := IsPalindrome(test.input); got != test.output {
+			t.Errorf("IsPalindrome(%v)=%v, expected %v", test.input, got, test.output)
+		}
+	}
+}

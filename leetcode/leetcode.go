@@ -1,6 +1,9 @@
 package leetcode
 
 import (
+	"strings"
+	"unicode"
+
 	"github.com/Arup3201/stack"
 )
 
@@ -131,4 +134,36 @@ func AddBinary(a, b string) string {
 
 	result = revert(result)
 	return string(result)
+}
+
+/*
+LC - 125
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric
+characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+*/
+
+func IsPalindrome(s string) bool {
+	s = strings.ToLower(s)
+	runes := []rune(s)
+	filtered := []rune{}
+
+	for _, r := range runes {
+		if unicode.IsLetter(r) || unicode.IsDigit(r) {
+			filtered = append(filtered, r)
+		}
+	}
+
+	low, high := 0, len(filtered)-1
+	for low < high {
+		if filtered[low] != filtered[high] {
+			return false
+		}
+
+		low++
+		high--
+	}
+
+	return true
 }
