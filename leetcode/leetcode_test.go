@@ -31,3 +31,33 @@ func TestFindCommonPrefix(t *testing.T) {
 		}
 	}
 }
+
+func TestValidParenthesis(t *testing.T) {
+	tests := []struct {
+		input  string
+		output bool
+	}{
+		{
+			input:  "(){}[()]",
+			output: true,
+		},
+		{
+			input:  "()",
+			output: true,
+		},
+		{
+			input:  "(){]",
+			output: false,
+		},
+		{
+			input:  "[(])",
+			output: false,
+		},
+	}
+
+	for _, test := range tests {
+		if got := ValidParenthesis(test.input); got != test.output {
+			t.Errorf("ValidParenthesis(%v)=%v, expected %v", test.input, got, test.output)
+		}
+	}
+}
