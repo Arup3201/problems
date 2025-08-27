@@ -230,3 +230,25 @@ func TestPivotIndex(t *testing.T) {
 		}
 	}
 }
+
+func TestRemoveDuplicates(t *testing.T) {
+	tests := []struct {
+		input  []int
+		output int
+	}{
+		{
+			input:  []int{1, 1, 2},
+			output: 2,
+		},
+		{
+			input:  []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
+			output: 5,
+		},
+	}
+
+	for _, test := range tests {
+		if got := RemoveDuplicates(test.input); got != test.output {
+			t.Errorf("RemoveDuplicates(%v)=%d, expected %d", test.input, got, test.output)
+		}
+	}
+}
