@@ -19,3 +19,20 @@ func ReverseDigits(num int) int {
 
 	return rev
 }
+
+func reverse(arr []int, l, h int) []int {
+	for l < h {
+		arr[l], arr[h] = arr[h], arr[l]
+		l++
+		h--
+	}
+
+	return arr
+}
+
+func RotateByK(arr []int, k int) []int {
+	arr = reverse(arr, 0, k%len(arr)-1)
+	arr = reverse(arr, k%len(arr), len(arr)-1)
+	arr = reverse(arr, 0, len(arr)-1)
+	return arr
+}
