@@ -262,3 +262,45 @@ func (this *NumArray) SumRange(left int, right int) int {
 
 	return this.prefixSum[right] - this.prefixSum[left-1]
 }
+
+/*
+LC 724 - Find pivot index
+
+Given an array of integers nums, calculate the pivot index of this array.
+
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
+
+If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+
+Return the leftmost pivot index. If no such index exists, return -1.
+*/
+
+func PivotIndex(nums []int) int {
+	n := len(nums)
+	pSum := make([]int, 0, n)
+
+	pSum = append(pSum, nums[0])
+	for i := 1; i < n; i++ {
+		pSum = append(pSum, pSum[i-1]+nums[i])
+	}
+
+	if len(pSum) == 1 {
+		return 0
+	}
+
+	if len(pSum) > 1 && pSum[n-1]-pSum[0] == 0 {
+		return 0
+	}
+
+	for i := 1; i < n; i++ {
+		if i == n-1 && pSum[i-1] == 0 {
+			return i
+		}
+
+		if pSum[i-1] == pSum[n-1]-pSum[i] {
+			return i
+		}
+	}
+
+	return -1
+}

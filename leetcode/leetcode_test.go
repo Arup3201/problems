@@ -200,3 +200,33 @@ func TestSumRange(t *testing.T) {
 		}
 	}
 }
+
+func TestPivotIndex(t *testing.T) {
+	tests := []struct {
+		input  []int
+		output int
+	}{
+		{
+			input:  []int{1, 7, 3, 6, 5, 6},
+			output: 3,
+		},
+		{
+			input:  []int{2, 1, -1},
+			output: 0,
+		},
+		{
+			input:  []int{-1, 1, 2},
+			output: 2,
+		},
+		{
+			input:  []int{0, 0},
+			output: 0,
+		},
+	}
+
+	for _, test := range tests {
+		if got := PivotIndex(test.input); got != test.output {
+			t.Errorf("PivotIndex(%v)=%d, expected %d", test.input, got, test.output)
+		}
+	}
+}
