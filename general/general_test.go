@@ -24,3 +24,29 @@ func TestGCD(t *testing.T) {
 	}
 
 }
+
+func TestReverseDigit(t *testing.T) {
+	tests := []struct {
+		input  int
+		output int
+	}{
+		{
+			input:  123,
+			output: 321,
+		},
+		{
+			input:  481,
+			output: 184,
+		},
+		{
+			input:  666,
+			output: 666,
+		},
+	}
+
+	for _, test := range tests {
+		if got := ReverseDigits(test.input); got != test.output {
+			t.Errorf("GCD(%d)=%d, expected %d", test.input, got, test.output)
+		}
+	}
+}
