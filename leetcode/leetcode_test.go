@@ -164,3 +164,39 @@ func TestMaxProfit(t *testing.T) {
 		}
 	}
 }
+
+func TestSumRange(t *testing.T) {
+	numArray := Constructor([]int{-2, 0, 3, -5, 2, -1})
+
+	tests := []struct {
+		inputs [2]int
+		output int
+	}{
+		{
+			inputs: [2]int{0, 2},
+			output: 1,
+		},
+		{
+			inputs: [2]int{2, 5},
+			output: -1,
+		},
+		{
+			inputs: [2]int{0, 5},
+			output: -3,
+		},
+		{
+			inputs: [2]int{0, 0},
+			output: -2,
+		},
+		{
+			inputs: [2]int{3, 4},
+			output: -3,
+		},
+	}
+
+	for _, test := range tests {
+		if got := numArray.SumRange(test.inputs[0], test.inputs[1]); got != test.output {
+			t.Errorf("MaxProfit(%d, %d)=%d, expected %d", test.inputs[0], test.inputs[1], got, test.output)
+		}
+	}
+}
