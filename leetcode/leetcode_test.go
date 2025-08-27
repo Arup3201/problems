@@ -1,6 +1,9 @@
 package leetcode
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func TestFindCommonPrefix(t *testing.T) {
 	tests := []struct {
@@ -106,6 +109,36 @@ func TestIsPalindrome(t *testing.T) {
 	for _, test := range tests {
 		if got := IsPalindrome(test.input); got != test.output {
 			t.Errorf("IsPalindrome(%v)=%v, expected %v", test.input, got, test.output)
+		}
+	}
+}
+
+func TestTwoSum(t *testing.T) {
+	tests := []struct {
+		array  []int
+		target int
+		output []int
+	}{
+		{
+			array:  []int{2, 7, 11, 15},
+			target: 9,
+			output: []int{0, 1},
+		},
+		{
+			array:  []int{3, 2, 4},
+			target: 6,
+			output: []int{1, 2},
+		},
+		{
+			array:  []int{3, 3},
+			target: 6,
+			output: []int{0, 1},
+		},
+	}
+
+	for _, test := range tests {
+		if got := TwoSum(test.array, test.target); !slices.Equal(got, test.output) {
+			t.Errorf("TwoSum(%v, %d)=%v, expected %v", test.array, test.target, got, test.output)
 		}
 	}
 }

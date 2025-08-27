@@ -167,3 +167,31 @@ func IsPalindrome(s string) bool {
 
 	return true
 }
+
+/*
+LC-1
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+*/
+
+func TwoSum(nums []int, target int) []int {
+	numToIndex := map[int]int{}
+	var num2, index int
+	var ok bool
+
+	for i, num := range nums {
+		num2 = target - num
+		index, ok = numToIndex[num2]
+		if !ok {
+			numToIndex[num] = i
+		} else {
+			return []int{index, i}
+		}
+	}
+
+	return []int{}
+}
