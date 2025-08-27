@@ -142,3 +142,25 @@ func TestTwoSum(t *testing.T) {
 		}
 	}
 }
+
+func TestMaxProfit(t *testing.T) {
+	tests := []struct {
+		prices []int
+		output int
+	}{
+		{
+			prices: []int{7, 1, 5, 3, 6, 4},
+			output: 5,
+		},
+		{
+			prices: []int{7, 6, 4, 3, 1},
+			output: 0,
+		},
+	}
+
+	for _, test := range tests {
+		if got := MaxProfit(test.prices); got != test.output {
+			t.Errorf("MaxProfit(%v)=%d, expected %d", test.prices, got, test.output)
+		}
+	}
+}
