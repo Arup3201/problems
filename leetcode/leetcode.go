@@ -368,3 +368,43 @@ func MoveZeros(nums []int) {
 		}
 	}
 }
+
+/*
+LC 141 - Linked list cycle
+
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+Return true if there is a cycle in the linked list. Otherwise, return false.
+*/
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func HasCycle(head *ListNode) bool {
+	slow, fast := head, head
+
+	for slow != nil || fast != nil {
+		if slow.Next == nil {
+			break
+		}
+		if fast.Next == nil {
+			break
+		}
+		if fast.Next.Next == nil {
+			break
+		}
+
+		slow = slow.Next
+		fast = fast.Next.Next
+
+		if slow == fast {
+			return true
+		}
+	}
+
+	return false
+}
