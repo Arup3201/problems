@@ -196,7 +196,7 @@ func TestSumRange(t *testing.T) {
 
 	for _, test := range tests {
 		if got := numArray.SumRange(test.inputs[0], test.inputs[1]); got != test.output {
-			t.Errorf("MaxProfit(%d, %d)=%d, expected %d", test.inputs[0], test.inputs[1], got, test.output)
+			t.Errorf("NumArray.SumRange(%d, %d)=%d, expected %d", test.inputs[0], test.inputs[1], got, test.output)
 		}
 	}
 }
