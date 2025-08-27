@@ -4,7 +4,6 @@ Here are the problems solved from different platforms -
 
 ## Leetcode
 
-- 
 - [LC 14: Longest common prefix sum](https://leetcode.com/problems/longest-common-prefix/)
 - [LC 20: Valid parenthesis](https://leetcode.com/problems/valid-parentheses/)
 - [LC 28: Find the index of the first occurence in a string](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
