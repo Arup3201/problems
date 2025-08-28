@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"sort"
 	"strings"
 	"unicode"
 
@@ -459,4 +460,31 @@ func ValidAnagram(s, t string) bool {
 	}
 
 	return true
+}
+
+/*
+LC 49 - Group anagrams
+
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+*/
+
+func getSortedWord(str string) string {
+	chars := strings.Split(str, "")
+	sort.Strings(chars)
+	return strings.Join(chars, "")
+}
+
+func GroupAnagram(strs []string) [][]string {
+	sortedFreqs := map[string][]string{}
+	for i := 0; i < len(strs); i++ {
+		sorted := getSortedWord(strs[i])
+		sortedFreqs[sorted] = append(sortedFreqs[sorted], strs[i])
+	}
+
+	groupedAnagrams := [][]string{}
+	for _, anagrams := range sortedFreqs {
+		groupedAnagrams = append(groupedAnagrams, anagrams)
+	}
+
+	return groupedAnagrams
 }
