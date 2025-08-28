@@ -434,3 +434,29 @@ func FirstUniqueChar(s string) int {
 
 	return -1
 }
+
+/*
+LC 242 - Valid anagram
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+*/
+
+func ValidAnagram(s, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+
+	freqS, freqT := map[byte]int{}, map[byte]int{}
+	for i := 0; i < len(s); i++ {
+		freqS[s[i]]++
+		freqT[t[i]]++
+	}
+
+	for bt, fs := range freqS {
+		if freqT[bt] != fs {
+			return false
+		}
+	}
+
+	return true
+}
