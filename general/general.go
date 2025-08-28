@@ -36,3 +36,23 @@ func RotateByK(arr []int, k int) []int {
 	arr = reverse(arr, 0, len(arr)-1)
 	return arr
 }
+
+func CharCount(s string, ch rune) int {
+	runeFreq := map[rune]int{}
+
+	for _, r := range s {
+		_, ok := runeFreq[r]
+		if !ok {
+			runeFreq[r] = 1
+		} else {
+			runeFreq[r]++
+		}
+	}
+
+	freq, ok := runeFreq[ch]
+	if !ok {
+		return 0
+	} else {
+		return freq
+	}
+}

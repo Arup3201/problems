@@ -83,3 +83,33 @@ func TestRotateByK(t *testing.T) {
 		}
 	}
 }
+
+func TestCharCount(t *testing.T) {
+	tests := []struct {
+		s      string
+		ch     rune
+		output int
+	}{
+		{
+			s:      "Hello, world",
+			ch:     'o',
+			output: 2,
+		},
+		{
+			s:      "Lord of mysteries",
+			ch:     'r',
+			output: 2,
+		},
+		{
+			s:      "One piece",
+			ch:     'r',
+			output: 0,
+		},
+	}
+
+	for _, test := range tests {
+		if got := CharCount(test.s, test.ch); got != test.output {
+			t.Errorf("CharCount(%s, %c)=%d, expected %d", test.s, test.ch, got, test.output)
+		}
+	}
+}
