@@ -23,3 +23,4 @@ Here are the problems solved from different platforms -
 - [LC 49: Group anagrams](https://leetcode.com/problems/group-anagrams)
 - [LC 268: Missing number](https://leetcode.com/problems/missing-number)
 - [LC 3: Longest substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
+- [LC 42: Trapping rain water](https://leetcode.com/problems/trapping-rain-water/)

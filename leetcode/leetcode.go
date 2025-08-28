@@ -531,3 +531,31 @@ func LengthOfLongestSubstring(s string) int {
 
 	return longest
 }
+
+/*
+LC 42 - Trapping rain water
+
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
+*/
+
+func Trap(height []int) int {
+	n := len(height)
+	lmax, rmax := make([]int, n), make([]int, n)
+	lmax[0] = height[0]
+	rmax[n-1] = height[n-1]
+
+	for i := 1; i < n; i++ {
+		lmax[i] = max(height[i], lmax[i-1])
+	}
+
+	for i := n - 2; i >= 0; i-- {
+		rmax[i] = max(height[i], rmax[i+1])
+	}
+
+	water := 0
+	for i := 1; i < n-1; i++ {
+		water += min(lmax[i], rmax[i]) - height[i]
+	}
+
+	return water
+}
