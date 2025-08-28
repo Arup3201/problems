@@ -504,3 +504,30 @@ func MissingNumber(nums []int) int {
 
 	return mx*(mx+1)/2 - sum
 }
+
+/*
+LC 3 - Longest substring without repeating characters
+
+Given a string s, find the length of the longest substring without duplicate characters.
+*/
+
+func LengthOfLongestSubstring(s string) int {
+	left, right := 0, 0
+	longest := 0
+
+	freq := map[byte]int{}
+	for right < len(s) {
+		freq[s[right]]++
+
+		for freq[s[right]] > 1 {
+			freq[s[left]]--
+			left++
+		}
+
+		longest = max(longest, right-left+1)
+
+		right++
+	}
+
+	return longest
+}
