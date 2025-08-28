@@ -18,3 +18,4 @@ Here are the problems solved from different platforms -
 - [LC 27: Remove element](https://leetcode.com/problems/remove-element/)
 - [LC 283: Move zeroes](https://leetcode.com/problems/move-zeroes/description/)
 - [LC 141: Linked list cycle](https://leetcode.com/problems/linked-list-cycle/description/)
+- [LC 387: First unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/description/)

@@ -408,3 +408,29 @@ func HasCycle(head *ListNode) bool {
 
 	return false
 }
+
+/*
+LC 387 - First Unique Character in a String
+
+Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+*/
+
+func FirstUniqueChar(s string) int {
+	freq := map[byte]int{}
+	for i := 0; i < len(s); i++ {
+		_, ok := freq[s[i]]
+		if !ok {
+			freq[s[i]] = 0
+		} else {
+			freq[s[i]]++
+		}
+	}
+
+	for i := 0; i < len(s); i++ {
+		if freq[s[i]] == 1 {
+			return i
+		}
+	}
+
+	return -1
+}
