@@ -21,3 +21,4 @@ Here are the problems solved from different platforms -
 - [LC 387: First unique character in a string](https://leetcode.com/problems/first-unique-character-in-a-string/description/)
 - [LC 242: Valid anagram](https://leetcode.com/problems/valid-anagram/description/)
 - [LC 49: Group anagrams](https://leetcode.com/problems/group-anagrams)
+- [LC 268: Missing number](https://leetcode.com/problems/missing-number)

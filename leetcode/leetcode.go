@@ -488,3 +488,19 @@ func GroupAnagram(strs []string) [][]string {
 
 	return groupedAnagrams
 }
+
+/*
+LC 268 - Missing numbers
+
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+*/
+
+func MissingNumber(nums []int) int {
+	sum := 0
+	mx := len(nums)
+	for _, n := range nums {
+		sum += n
+	}
+
+	return mx*(mx+1)/2 - sum
+}
