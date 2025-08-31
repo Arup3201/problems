@@ -611,3 +611,35 @@ func LargestAltitude(gain []int) int {
 
 	return maxAlt
 }
+
+/*
+LC 3432 - Count partitions with even sum difference
+
+You are given an integer array nums of length n.
+
+A partition is defined as an index i where 0 <= i < n - 1, splitting the array into two non-empty subarrays such that:
+
+Left subarray contains indices [0, i].
+Right subarray contains indices [i + 1, n - 1].
+Return the number of partitions where the difference between the sum of the left and right subarrays is even.
+*/
+func CountPartitions(nums []int) int {
+	n := len(nums)
+	pSum := make([]int, n)
+	pSum[0] = nums[0]
+
+	for i := 1; i < n; i++ {
+		pSum[i] = pSum[i-1] + nums[i]
+	}
+
+	pCount := 0
+	for left := 0; left < n-1; left++ {
+		lSum := pSum[left]
+		rSum := pSum[n-1] - pSum[left]
+		if (rSum-lSum)%2 == 0 {
+			pCount++
+		}
+	}
+
+	return pCount
+}
