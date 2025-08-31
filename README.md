@@ -25,3 +25,4 @@ Here are the problems solved from different platforms -
 - [LC 3: Longest substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 - [LC 42: Trapping rain water](https://leetcode.com/problems/trapping-rain-water/)
 - [LC 1422: Maximum score after splitting a string](https://leetcode.com/problems/maximum-score-after-splitting-a-string)
+- [LC 1732: Find the highest altitude](https://leetcode.com/problems/find-the-highest-altitude)
