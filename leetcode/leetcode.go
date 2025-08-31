@@ -559,3 +559,36 @@ func Trap(height []int) int {
 
 	return water
 }
+
+/*
+LC 1422 - Maximum score after splitting a string
+*/
+func MaxScore(s string) int {
+	n := len(s)
+	pSum := make([]int, n)
+
+	if s[0] == '1' {
+		pSum[0] = 1
+	} else {
+		pSum[0] = 0
+	}
+
+	for i := 1; i < n; i++ {
+		if s[i] == '1' {
+			pSum[i] = pSum[i-1] + 1
+		} else {
+			pSum[i] = pSum[i-1]
+		}
+	}
+
+	maxScore := 0
+	left := 1      // left substring size
+	for left < n { // left-1 < n-1
+		lZeros := left - pSum[left-1]
+		rOnes := pSum[n-1] - pSum[left-1]
+		maxScore = max(maxScore, lZeros+rOnes)
+		left++
+	}
+
+	return maxScore
+}
