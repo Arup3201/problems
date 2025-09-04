@@ -598,7 +598,7 @@ LC 1732 - Find the highest altitude
 
 There is a biker going on a road trip. The road trip consists of n + 1 points at different altitudes. The biker starts his trip on point 0 with altitude equal 0.
 
-You are given an integer array gain of length n where gain[i] is the net gain in altitude between points i​​​​​​ and i + 1 for all (0 <= i < n). Return the highest altitude of a point.
+You are given an integer array gain of length n where gain[i] is the net gain in altitude between points i and i + 1 for all (0 <= i < n). Return the highest altitude of a point.
 */
 
 func LargestAltitude(gain []int) int {
@@ -642,4 +642,25 @@ func CountPartitions(nums []int) int {
 	}
 
 	return pCount
+}
+
+/*
+LC 349 - Given two integer arrays nums1 and nums2, return an array of their . Each element in the result must be unique and you may return the result in any order.
+*/
+
+func Intersection(nums1, nums2 []int) []int {
+	f1 := map[int]int{}
+	for _, n1 := range nums1 {
+		f1[n1]++
+	}
+
+	intersect := []int{}
+	for _, n := range nums2 {
+		if f1[n]>0 {
+			intersect = append(intersect, n)
+			f1[n] = 0
+		}
+	}
+
+	return intersect
 }
