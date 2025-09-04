@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"slices"
 	"sort"
 	"strings"
 	"unicode"
@@ -702,4 +703,30 @@ func FindTarget(root *TreeNode, k int) bool {
 	}
 
 	return false
+}
+
+/*
+LC 594 - We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
+
+Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
+*/
+
+func FindLHS(nums []int) int {
+	slices.Sort(nums)
+	maxSubseq := 0
+	left, subseqLen := 0, 1
+
+	for right:=1;right<len(nums);right++ {
+		subseqLen += 1
+		if nums[right]-nums[left] == 1 {
+			maxSubseq = max(maxSubseq, subseqLen)
+		} else {
+			for left<right && nums[right]-nums[left] > 1 {
+				subseqLen -= 1
+				left++
+			}
+		}
+	}
+
+	return maxSubseq
 }
