@@ -30,3 +30,4 @@ Here are the problems solved from different platforms -
 - [LC 349: Intersection of two arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 - [LC 653: Two sum IV - Input is a BST](https://leetcode.com/problems/two-sum-iv-input-is-a-bst/)
 - [LC 594: Longest harmonious subsequence](https://leetcode.com/problems/longest-harmonious-subsequence?envType=problem-list-v2&envId=sliding-window)
+- [LC 643: Maximum average subarray 1](https://leetcode.com/problems/maximum-average-subarray-i)
