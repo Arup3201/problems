@@ -664,3 +664,42 @@ func Intersection(nums1, nums2 []int) []int {
 
 	return intersect
 }
+
+/*
+LC 653 - Given the root of a binary search tree and an integer k, return true if there exist two elements in the BST such that their sum is equal to k, or false otherwise.
+*/
+
+type TreeNode struct {
+	Val int
+	Left *TreeNode
+	Right *TreeNode
+}
+
+func inOrder(node *TreeNode, items []int) []int {
+	if node==nil {
+		return items
+	}
+
+	items = inOrder(node.Left, items)
+	items = append(items, node.Val)
+	items = inOrder(node.Right, items)
+	return items
+}
+
+func FindTarget(root *TreeNode, k int) bool {
+	nodeValues := []int{}
+	nodeValues = inOrder(root, nodeValues)
+
+	left, right := 0, len(nodeValues)-1
+	for left<right {
+		if nodeValues[left]+nodeValues[right]==k {
+			return true
+		} else if nodeValues[left]+nodeValues[right]>k {
+			right--
+		} else {
+			left++
+		}
+	}
+
+	return false
+}
