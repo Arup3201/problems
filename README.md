@@ -32,3 +32,4 @@ Here are the problems solved from different platforms -
 - [LC 594: Longest harmonious subsequence](https://leetcode.com/problems/longest-harmonious-subsequence?envType=problem-list-v2&envId=sliding-window)
 - [LC 643: Maximum average subarray 1](https://leetcode.com/problems/maximum-average-subarray-i)
 - [LC 2379: Minimum recolors to get K consecutive black blocks](https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks)
+- [LC 2760: Longest even odd subarray with threshold](https://leetcode.com/problems/longest-even-odd-subarray-with-threshold)
