@@ -35,3 +35,4 @@ Here are the problems solved from different platforms -
 - [LC 2760: Longest even odd subarray with threshold](https://leetcode.com/problems/longest-even-odd-subarray-with-threshold)
 - [LC 2932: Maximum strong pair XOR I](https://leetcode.com/problems/maximum-strong-pair-xor-i)
 - [LC 234: Palindrome linked list](https://leetcode.com/problems/palindrome-linked-list/)
+- [LC 21: Merge two sorted lists](https://leetcode.com/problems/merge-two-sorted-lists/)
