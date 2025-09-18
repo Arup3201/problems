@@ -1,6 +1,2 @@
-github.com/Arup3201/bst v0.0.0-20250823050844-1ebda1d20ec1 h1:D5S8hpy7jIWZKOKSm6kqIjAQ5Ticzy6D8YFMALUGQhA=
-github.com/Arup3201/bst v0.0.0-20250823050844-1ebda1d20ec1/go.mod h1:W0au0MgmvbUYDX7Y/4l4g6O9s/9fEMs3V+Mp8RBpPMQ=
-github.com/Arup3201/queue v0.0.0-20250825064342-b306ebf8bbc9 h1:mbi7HexPbaEM9r8TS/pGpDV01f9f4R8D8hkL4YvX5sk=
-github.com/Arup3201/queue v0.0.0-20250825064342-b306ebf8bbc9/go.mod h1:Q40zZA+oDxUCOze+mhE3i0BYeYhvBbgFGpzblYH8TcU=
 github.com/Arup3201/stack v0.0.0-20250825055058-18b42dd167af h1:ddo6NIm3NEnvGNhPcl2iFLRLH0OIHy98lHUCQUcugNs=
 github.com/Arup3201/stack v0.0.0-20250825055058-18b42dd167af/go.mod h1:HyfVADEf8lHfYktT4rsye6rmEkwon1QG1lthW4kWuTs=
