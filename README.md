@@ -37,3 +37,4 @@ Here are the problems solved from different platforms -
 - [LC 33: Search in rotated sorted array](https://leetcode.com/problems/search-in-rotated-sorted-array)
 - [LC 234: Palindrome linked list](https://leetcode.com/problems/palindrome-linked-list/)
 - [LC 21: Merge two sorted lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+- [LC 74: Search 2D matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
