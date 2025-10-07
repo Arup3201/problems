@@ -113,3 +113,37 @@ func TestCharCount(t *testing.T) {
 		}
 	}
 }
+
+func TestQuickSort(t *testing.T) {
+	testCases := []struct {
+		nums     []int
+		expected []int
+	}{
+		{
+			nums:     []int{2, 4, 1, 5, 3, 10},
+			expected: []int{1, 2, 3, 4, 5, 10},
+		},
+		{
+			nums:     []int{1, 2, 3, 4, 5, 6},
+			expected: []int{1, 2, 3, 4, 5, 6},
+		},
+		{
+			nums:     []int{6, 5, 4, 3, 2, 1},
+			expected: []int{1, 2, 3, 4, 5, 6},
+		},
+		{
+			nums:     []int{2, 1},
+			expected: []int{1, 2},
+		},
+		{
+			nums:     []int{2},
+			expected: []int{2},
+		},
+	}
+
+	for _, tc := range testCases {
+		if got := quickSortStart(tc.nums); !slices.Equal(got, tc.expected) {
+			t.Errorf("quickSort(%v)=%v, expected %v", tc.nums, got, tc.expected)
+		}
+	}
+}
