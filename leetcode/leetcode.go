@@ -657,7 +657,7 @@ func Intersection(nums1, nums2 []int) []int {
 
 	intersect := []int{}
 	for _, n := range nums2 {
-		if f1[n]>0 {
+		if f1[n] > 0 {
 			intersect = append(intersect, n)
 			f1[n] = 0
 		}
@@ -671,13 +671,13 @@ LC 653 - Given the root of a binary search tree and an integer k, return true if
 */
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
 func inOrder(node *TreeNode, items []int) []int {
-	if node==nil {
+	if node == nil {
 		return items
 	}
 
@@ -692,10 +692,10 @@ func FindTarget(root *TreeNode, k int) bool {
 	nodeValues = inOrder(root, nodeValues)
 
 	left, right := 0, len(nodeValues)-1
-	for left<right {
-		if nodeValues[left]+nodeValues[right]==k {
+	for left < right {
+		if nodeValues[left]+nodeValues[right] == k {
 			return true
-		} else if nodeValues[left]+nodeValues[right]>k {
+		} else if nodeValues[left]+nodeValues[right] > k {
 			right--
 		} else {
 			left++
@@ -716,12 +716,12 @@ func FindLHS(nums []int) int {
 	maxSubseq := 0
 	left, subseqLen := 0, 1
 
-	for right:=1;right<len(nums);right++ {
+	for right := 1; right < len(nums); right++ {
 		subseqLen += 1
 		if nums[right]-nums[left] == 1 {
 			maxSubseq = max(maxSubseq, subseqLen)
 		} else {
-			for left<right && nums[right]-nums[left] > 1 {
+			for left < right && nums[right]-nums[left] > 1 {
 				subseqLen -= 1
 				left++
 			}
@@ -729,4 +729,44 @@ func FindLHS(nums []int) int {
 	}
 
 	return maxSubseq
+}
+
+/*
+LC - 34
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+If target is not found in the array, return [-1, -1].
+
+You must write an algorithm with O(log n) runtime complexity.
+*/
+func searchRange(nums []int, target int) []int {
+	low, high := 0, len(nums)-1
+	rLeft, rRight := -1, -1
+
+	for low <= high {
+		mid := low + (high-low)/2
+		if nums[mid] == target {
+			rLeft = mid
+			high = mid - 1
+		} else if target > nums[mid] {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+
+	low, high = 0, len(nums)-1
+	for low <= high {
+		mid := low + (high-low)/2
+		if nums[mid] == target {
+			rRight = mid
+			low = mid + 1
+		} else if target > nums[mid] {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+
+	return []int{rLeft, rRight}
 }

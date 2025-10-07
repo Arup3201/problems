@@ -252,3 +252,43 @@ func TestRemoveDuplicates(t *testing.T) {
 		}
 	}
 }
+
+func TestSearchRange(t *testing.T) {
+	testCases := []struct {
+		nums     []int
+		target   int
+		expected []int
+	}{
+		{
+			nums:     []int{5, 7, 7, 8, 8, 10},
+			target:   8,
+			expected: []int{3, 4},
+		},
+		{
+			nums:     []int{5, 7, 7, 8, 8, 10},
+			target:   6,
+			expected: []int{-1, -1},
+		},
+		{
+			nums:     []int{},
+			target:   0,
+			expected: []int{-1, -1},
+		},
+		{
+			nums:     []int{2, 3, 3, 3, 3, 4},
+			target:   3,
+			expected: []int{1, 4},
+		},
+		{
+			nums:     []int{2, 3, 3, 3, 3, 4},
+			target:   4,
+			expected: []int{5, 5},
+		},
+	}
+
+	for _, tc := range testCases {
+		if got := searchRange(tc.nums, tc.target); !slices.Equal(got, tc.expected) {
+			t.Errorf("searchRange(%v, %d)=%v, expected %v", tc.nums, tc.target, got, tc.expected)
+		}
+	}
+}
