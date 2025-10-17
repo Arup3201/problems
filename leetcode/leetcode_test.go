@@ -292,3 +292,33 @@ func TestSearchRange(t *testing.T) {
 		}
 	}
 }
+
+func TestMaxArea(t *testing.T) {
+	testCases := []struct {
+		heights  []int
+		expected int
+	}{
+		{
+			heights:  []int{1, 8, 6, 2, 5, 4, 8, 3, 7},
+			expected: 49,
+		},
+		{
+			heights:  []int{1, 1},
+			expected: 1,
+		},
+		{
+			heights:  []int{2, 4},
+			expected: 2,
+		},
+		{
+			heights:  []int{5, 4, 3, 2, 1},
+			expected: 6,
+		},
+	}
+
+	for _, tc := range testCases {
+		if got := maxArea(tc.heights); got != tc.expected {
+			t.Errorf("maxArea(%v)=%d, expected %v", tc.heights, got, tc.expected)
+		}
+	}
+}
