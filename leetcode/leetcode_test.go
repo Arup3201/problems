@@ -322,3 +322,23 @@ func TestMaxArea(t *testing.T) {
 		}
 	}
 }
+
+func TestMaximumJumps(t *testing.T) {
+	testCases := []struct {
+		nums     []int
+		target   int
+		expected int
+	}{
+		{
+			nums:     []int{1, 3, 6, 4, 1, 2},
+			target:   2,
+			expected: 3,
+		},
+	}
+
+	for _, tc := range testCases {
+		if got := maximumJumps(tc.nums, tc.target); got != tc.expected {
+			t.Errorf("maxArea(%v, %d)=%d, expected %v", tc.nums, tc.target, got, tc.expected)
+		}
+	}
+}

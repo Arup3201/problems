@@ -800,3 +800,39 @@ func maxArea(height []int) int {
 
 	return res
 }
+
+/*
+You are given a 0-indexed array nums of n integers and an integer target.
+
+You are initially positioned at index 0. In one step, you can jump from index i to any index j such that:
+
+0 <= i < j < n
+-target <= nums[j] - nums[i] <= target
+Return the maximum number of jumps you can make to reach index n - 1.
+
+If there is no way to reach index n - 1, return -1.
+*/
+
+func maximumJumps(nums []int, target int) int {
+	dp := make([]int, len(nums))
+	dp[0] = 0
+	for i := 1; i < len(nums); i++ {
+		dp[i] = -1
+	}
+
+	var diff int
+	for i := range len(nums) {
+		if dp[i] == -1 {
+			continue
+		}
+
+		for j := i + 1; j < len(nums); j++ {
+			diff = nums[j] - nums[i]
+			if diff >= -target && diff <= target {
+				dp[j] = max(dp[j], 1+dp[i])
+			}
+		}
+	}
+
+	return dp[len(nums)-1]
+}
